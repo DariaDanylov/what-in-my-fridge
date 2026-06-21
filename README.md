@@ -1,73 +1,28 @@
-# React + TypeScript + Vite
+# FridgeMatch 🍎
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**FridgeMatch** הוא עוזר חכם לניהול המקרר והמזווה שנועד לפתור את כאב בזבוז המזון וקבלת ההחלטות היומיומית בארוחות, על ידי הצעת מתכונים יצירתיים המבוססים על המרכיבים הקיימים בבית בלבד; הפתרון מיועד לסטודנטים, משפחות ואנשים עסוקים המעוניינים למקסם את המלאי הקיים ולחסוך כסף, ובניגוד לחיפוש ידני או אפליקציות גנריות, הבידול המרכזי של FridgeMatch הוא היכולת להתחיל מהמלאי האישי של המשתמש ולהציע פתרון מיידי למוצרים הקיימים.
 
-Currently, two official plugins are available:
+### 🔗 פרויקט חי
+* **לינק לפרויקט ב-Vercel:** [כאן להוסיף לינק]
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+### 📊 מודל נתונים (ERD)
+הארכיטקטורה הטכנית של המערכת מבוססת על בסיס נתונים רלציוני ב-**Supabase**, המאפשר ניהול מלאי ומתכונים בצורה גמישה.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+![ERD Diagram](צילום%20מסך%202026-06-21%20214853.png)
 
-## Expanding the ESLint configuration
+**הסבר על מודל הנתונים:**
+הארכיטקטורה בנויה על הפרדה בין ישויות המשתמשים, מלאי המזווה (`pantry_items`) והמתכונים, תוך שימוש בטבלה מקשרת (`recipe_ingredients`) המאפשרת יחסים מורכבים בין מרכיבים למתכונים. המבנה מבטיח שליפה מהירה של תוצאות רלוונטיות על בסיס רשימת המלאי האישית של כל משתמש, ומבטיח שהפרויקט יהיה סקיילבילי, מאובטח וקל לתחזוקה.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 🛠 שירותים חיצוניים ואינטגרציות
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+| שירות | סוג | תפקיד |
+| :--- | :--- | :--- |
+| **Supabase** | Backend/DB | ניהול נתוני משתמשים ומלאי המזון. |
+| **OpenAI API** | AI/API | יצירת הצעות למתכונים על בסיס רשימת המצרכים. |
+| **Vercel** | Deployment | אירוח והפצת האתר. |
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
