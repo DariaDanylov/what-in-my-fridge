@@ -1,0 +1,14 @@
+.card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 16px;
+  margin: 8px;
+}
+
+/* הטיפ למקצוענות */
+button:hover {
+  filter: brightness(1.1); /* הבהרה קלה של הכפתור במעבר עכבר */
+  transform: translateY(-1px); /* אפקט קפיצה עדין */
+  transition: all 0.2s ease;
+}

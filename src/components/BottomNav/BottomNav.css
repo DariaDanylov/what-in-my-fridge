@@ -1,0 +1,7 @@
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  background: #fff;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}

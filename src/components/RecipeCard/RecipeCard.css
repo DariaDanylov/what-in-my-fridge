@@ -1,0 +1,16 @@
+.recipe-card {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  overflow: hidden; /* זה הקסם שחוסך את הבעיה */
+  margin: 10px auto;
+}
+
+/* הגדרה ישירה לתמונה בתוך הכרטיס */
+.recipe-card img {
+  width: 100% !important;
+  height: 150px !important;
+  object-fit: cover !important;
+  display: block !important;
+}
