@@ -8,8 +8,8 @@ import RecipeDetailsPage from './pages/RecipeDetailsPage';
 
 function App() {
   return (
-    <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-      <div style={{ paddingBottom: '70px' }}> {/* מרווח בתחתית כדי שהתוכן לא יוסתר ע"י התפריט */}
+    <Router>
+      <div style={{ paddingBottom: '70px' }}>
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/pantry" element={<PantryPage />} />
@@ -19,10 +19,7 @@ function App() {
         </Routes>
       </div>
       
-      {/* התפריט תמיד למטה, מחוץ ל-Routes */}
       <BottomNav />
     </Router>
   );
 }
-
-export default App;
