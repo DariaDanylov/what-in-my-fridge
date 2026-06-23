@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import BottomNav from './components/BottomNav/BottomNav'; // ודאי שהנתיב תואם למיקום הקובץ שלך
+import BottomNav from './components/BottomNav/BottomNav';
 import Dashboard from './pages/Dashboard';
 import PantryPage from './pages/PantryPage';
 import FavoritesPage from './pages/FavoritesPage';
@@ -9,7 +9,7 @@ import RecipeDetailsPage from './pages/RecipeDetailsPage';
 function App() {
   return (
     <Router>
-      <div style={{ paddingBottom: '70px' }}>
+      <div style={{ paddingBottom: '70px' }}> {/* מרווח בתחתית כדי שהתוכן לא יוסתר ע"י התפריט */}
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/pantry" element={<PantryPage />} />
@@ -19,7 +19,10 @@ function App() {
         </Routes>
       </div>
       
+      {/* התפריט תמיד למטה, מחוץ ל-Routes */}
       <BottomNav />
     </Router>
   );
 }
+
+export default App;
